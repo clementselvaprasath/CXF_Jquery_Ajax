@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>jQuery.post demo</title>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+ 
+<form method="POST" id="searchForm">
+  <input type="text" name="s" placeholder="Search...">
+  <!--   onclick="onclickfunction()"
+  -->
+  <input type="submit" onclick="onclickfunction()" value="Search">
+</form>
+<!-- the result of the search will be rendered inside this div -->
+<div id="result"></div>
+ 
+<script>
+
+
+function onclickfunction(){
+	alert("onclickfunction ");
+	var theObject = { "string":"Clementererer","anInt":10901 };
+
+	var jqxhr =
+    $.ajax({
+        url: "http://localhost:28080/spring-cxf-rest-example/services/example/putModel",
+        processData : false,
+        type : "POST",
+		contentType : "application/json",
+        data: JSON.stringify(theObject)
+    })
+    .done (function(data) { 
+		alert("In DONE function....");
+		alert("data --"+JSON.stringify(data));
+		alert("data string --"+data.string);
+		alert("data anInt --"+data.anInt);
+		var content1 = '<p> '+data.string + ' ---- '+data.anInt;
+		var content = $( data ).find( "#content" );
+		alert("content --"+content.string);
+		alert("JSON.stringify --"+JSON.stringify(content));
+		$( "#result" ).append( content1 );
+	})
+    .fail (function()  { alert("Error ")   ; })
+    ;
+	
+	
+}
+
+</script>
+ 
+</body>
+</html>
