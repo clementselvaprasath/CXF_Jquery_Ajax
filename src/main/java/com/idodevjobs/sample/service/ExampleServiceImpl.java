@@ -15,6 +15,6 @@ public class ExampleServiceImpl implements ExampleService {
 	public ExampleModel putModel(ExampleModel exampleModel){
 		System.out.println("Entering...."+exampleModel.toString());
 		//return "Returing string of putModel...";
-		return new ExampleModel("exampleRETURNING", 999);
+		return new ExampleModel(exampleModel.getString() + "Returning Back with addition 10", exampleModel.getAnInt()+10);
 	}
 }
