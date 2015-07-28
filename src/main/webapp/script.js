@@ -7,6 +7,8 @@ angular.module("mainModule", [])
 
     $scope.submitData = function (person, resultVarName)
     {
+	  alert("person -- "+person);
+	  alert("person -- "+JSON.stringify(person));
       var config = {
         params: {
           //person: person
@@ -14,7 +16,7 @@ angular.module("mainModule", [])
         }
       };
 
-      $http.post("services/example/putModel", null, config)
+      $http.post("services/example/putModel",JSON.stringify(person))
         .success(function (data, status, headers, config)
         {
           $scope[resultVarName] = data;
