@@ -1,7 +1,17 @@
 package com.idodevjobs.sample.model;
- 
-public class ExampleModel {
+
+import java.io.Serializable;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
+
+@Document(collection="model") 
+public class ExampleModel implements Serializable  {
+
+	
+	@Id
     private String string;
+	@Field
     private int anInt;
  
     public ExampleModel() {}
@@ -10,7 +20,7 @@ public class ExampleModel {
         this.string = string;
         this.anInt = anInt;
     }
- 
+
     public String getString() {
         return string;
     }

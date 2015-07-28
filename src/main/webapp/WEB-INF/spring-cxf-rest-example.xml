@@ -3,17 +3,27 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:jaxrs="http://cxf.apache.org/jaxrs"
        xmlns:cxf="http://cxf.apache.org/core"
+	   xmlns:mongo="http://www.springframework.org/schema/data/mongo"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	   xmlns:http-conf="http://cxf.apache.org/transports/http/configuration"
        xsi:schemaLocation="
                         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/data/mongo http://www.springframework.org/schema/data/mongo/spring-mongo.xsd
                         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
 						http://cxf.apache.org/transports/http/configuration http://cxf.apache.org/schemas/configuration/http-conf.xsd
                         http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd
                         http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
  
     <context:component-scan base-package="com.idodevjobs" />
- 
+	<mongo:db-factory id="mongoDbFactory" dbname="grf" /> 
+	
+	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+        <constructor-arg ref="mongoDbFactory" />
+        <property name="writeConcern" value="SAFE" />
+    </bean>
+	
+	<mongo:repositories base-package="com.idodevjobs.sample.repositories"/>
+	
     <jaxrs:server id="exampleCxfServer" address="/">
         <jaxrs:serviceBeans>
             <ref bean="exampleService"/>
