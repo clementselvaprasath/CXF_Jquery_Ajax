@@ -1,6 +1,7 @@
-package com.idodevjobs.sample.service;
+package com.paypal.compliance.service;
  
-import com.idodevjobs.sample.model.ExampleModel;
+import com.paypal.compliance.domain.Disclosure;
+import com.paypal.compliance.domain.ExampleModel;
  
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -21,4 +22,10 @@ public interface ExampleService {
     @POST
     @Path("/putModel")
     public ExampleModel putModel(ExampleModel exampleModel);
+    
+    @POST
+    @Path("/createDisclosure")
+    public Disclosure createDisclosure(Disclosure disclosure);
+    
+    
 }

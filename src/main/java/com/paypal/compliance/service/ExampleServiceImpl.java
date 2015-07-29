@@ -1,4 +1,4 @@
-package com.idodevjobs.sample.service;
+package com.paypal.compliance.service;
  
 import java.net.UnknownHostException;
 
@@ -11,8 +11,11 @@ import com.mongodb.BasicDBObject;
 import com.mongodb.DBCollection;
 import com.mongodb.DBObject;
 import com.mongodb.MongoException;
-import com.idodevjobs.sample.repositories.ExampleModelRepository; 
-import com.idodevjobs.sample.model.ExampleModel;
+import com.paypal.compliance.domain.Disclosure;
+import com.paypal.compliance.domain.ExampleModel;
+import com.paypal.compliance.domain.repositories.ExampleModelRepository;
+import com.paypal.compliance.domain.repositories.DisclosureRepository;
+
 import org.springframework.stereotype.Service;
  
 @Service("exampleService")
@@ -20,6 +23,9 @@ public class ExampleServiceImpl implements ExampleService {
  
 	@Autowired
 	ExampleModelRepository exampleModelRepository;
+	
+	@Autowired
+	DisclosureRepository disclosureRepository;
 	
     //@Override
     //public ExampleModel get(String modelId) {
@@ -39,5 +45,13 @@ public class ExampleServiceImpl implements ExampleService {
 		}*/
 		exampleModelRepository.save(exampleModel);
 		return new ExampleModel(exampleModel.getString() + "Returning Back with addition 10", exampleModel.getAnInt()+10);
+	}
+	
+	
+	public Disclosure createDisclosure(Disclosure disclosure){
+		System.out.println("Entering....createDisclosure -- "+disclosure.toString());
+		
+		disclosureRepository.save(disclosure);
+		return disclosure;
 	}
 }

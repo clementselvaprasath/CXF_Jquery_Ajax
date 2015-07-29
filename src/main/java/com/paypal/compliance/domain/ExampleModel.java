@@ -1,4 +1,4 @@
-package com.idodevjobs.sample.model;
+package com.paypal.compliance.domain;
 
 import java.io.Serializable;
 import org.springframework.data.annotation.Id;

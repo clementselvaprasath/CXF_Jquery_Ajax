@@ -1,7 +1,9 @@
-package com.idodevjobs.sample.repositories;
+package com.paypal.compliance.domain.repositories;
 
 import java.util.List;
-import com.idodevjobs.sample.model.ExampleModel;
+
+import com.paypal.compliance.domain.ExampleModel;
+
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

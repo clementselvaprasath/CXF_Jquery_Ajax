@@ -14,7 +14,7 @@
                         http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd
                         http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
  
-    <context:component-scan base-package="com.idodevjobs" />
+    <context:component-scan base-package="com.paypal.compliance" />
 	<mongo:db-factory id="mongoDbFactory" dbname="grf" /> 
 	
 	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
@@ -22,7 +22,7 @@
         <property name="writeConcern" value="SAFE" />
     </bean>
 	
-	<mongo:repositories base-package="com.idodevjobs.sample.repositories"/>
+	<mongo:repositories base-package="com.paypal.compliance.domain.repositories"/>
 	
     <jaxrs:server id="exampleCxfServer" address="/">
         <jaxrs:serviceBeans>
