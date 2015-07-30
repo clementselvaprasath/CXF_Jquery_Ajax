@@ -1,0 +1,69 @@
+DFIN_DISC
+DFIN_TRANSACTIONS
+DFIN_DISC_VERSION
+DFIN_SUBJECTS
+
+Disclosure
+key
+case_identifier
+case_key
+case_name
+orgunit_code
+domain_code
+
+
+Transaction
+id
+amount_base
+account_source_ref_id
+currency_code_base
+trans_ref_desc
+txn_type_desc
+
+Subject
+entity_key
+disc_version_key
+entity_mark
+first_name
+last_name
+
+
+key: 1000,
+caseIdentifier: "C12321112",
+caseKey: 2543,
+caseName: "SAR QS",
+orgunitCode: 1001,
+domainCode: 1025
+
+key: 1001,caseIdentifier: "C12321112",caseKey: 2543,caseName: "SAR QS",orgunitCode: 1001,domainCode: 1025
+key: 1002,caseIdentifier: "C12321312",caseKey: 2544,caseName: "SAR Manual",orgunitCode: 1003,domainCode: 1025
+key: 1003,caseIdentifier: "C12351142",caseKey: 2545,caseName: "SAR Referral Domain",orgunitCode: 1004,domainCode: 1025
+
+id: 100,
+amountBase: "INR",
+accountSourceRefId: 1232,
+currencyCodeBase: "INR",
+transRefDesc: "Sample",
+txnTypeDesc: "Sample Txn Transaction"
+
+
+id: 100,amountBase: "INR",accountSourceRefId: 1232,currencyCodeBase: "INR",transRefDesc: "Sample-1",txnTypeDesc: "Sample-1 Txn Transaction"
+id: 101,amountBase: "GBP",accountSourceRefId: 5466,currencyCodeBase: "GBP",transRefDesc: "Sample-2",txnTypeDesc: "Sample-2 Txn Transaction"
+id: 102,amountBase: "USR",accountSourceRefId: 2121,currencyCodeBase: "USR",transRefDesc: "Sample-3",txnTypeDesc: "Sample-3 Txn Transaction"
+
+
+id: 100,
+entityKey: 1001,
+discVersionKey:1001,
+entityMark:"Entitiy Mark",
+firstName: "Andrew",
+lastName: "Ramesh"
+
+
+id: 100,entityKey: 1001,discVersionKey:1001,entityMark:"Entitiy Mark-1",firstName: "Andrew",lastName: "Ramesh"
+id: 101,entityKey: 1002,discVersionKey:1003,entityMark:"Entitiy Mark-2",firstName: "Jackson",lastName: "Kumar"
+id: 102,entityKey: 1003,discVersionKey:1007,entityMark:"Entitiy Mark-3",firstName: "Gina",lastName: "Ali"
+
+
+
+key: 1000,caseIdentifier: "C12321112",caseKey: 2543,caseName: "SAR QS",orgunitCode: 1001,domainCode: 1025, transactions : [{id: 100,amountBase: "INR",accountSourceRefId: 1232,currencyCodeBase: "INR",transRefDesc: "Sample",txnTypeDesc: "Sample Txn Transaction"}], subjects : [{id: 100,entityKey: 1001,discVersionKey:1001,entityMark:"Mark",firstName: "CO & CO",lastName: "Last Name CO"}]
